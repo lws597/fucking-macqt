@@ -1,4 +1,4 @@
 *.DS_Store
 *.ccls-cache
 *.history
-*build-*-Desktop_x86_darwin_generic_mach_o_64bit-Debug
+*build-*
