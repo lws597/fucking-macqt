@@ -7,7 +7,7 @@ FatherDialog::FatherDialog(QWidget *parent) :
     ui(new Ui::FatherDialog)
 {
     ui->setupUi(this);
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
+    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_clicked()));
 }
 
 FatherDialog::~FatherDialog()
@@ -15,7 +15,7 @@ FatherDialog::~FatherDialog()
     delete ui;
 }
 
-void FatherDialog::on_pushButton_clicked()
+void FatherDialog::on_clicked()
 {
     SonDialog sDialog(this);
     sDialog.exec();

@@ -12,11 +12,11 @@ class SonDialog : public QDialog {
     Q_OBJECT
 
 public:
-    explicit SonDialog(QDialog *parent = 0);
+    explicit SonDialog(QWidget *parent = 0);
     ~SonDialog();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_clicked();
 
 private:
     Ui::SonDialog *ui;

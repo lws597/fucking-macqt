@@ -18,7 +18,7 @@ public:
     ~FatherDialog();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_clicked();
 
 private:
     Ui::FatherDialog *ui;

@@ -3,12 +3,12 @@
 
 #include <QMessageBox>
 
-SonDialog::SonDialog(QDialog *parent) :
+SonDialog::SonDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SonDialog)
 {
     ui->setupUi(this);
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_pushButton_clicked()));
+    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(on_clicked()));
 }
 
 SonDialog::~SonDialog()
@@ -16,7 +16,7 @@ SonDialog::~SonDialog()
     delete ui;
 }
 
-void SonDialog::on_pushButton_clicked()
+void SonDialog::on_clicked()
 {
     QMessageBox::information(this, "", "hello world");
 }

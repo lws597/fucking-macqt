@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "fatherdialog.h"
+
+#include <QDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +18,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_clicked()
 {
-    FatherDialog fDialog(this);
-    fDialog.exec();
+    QDialog dialog(this);
+    dialog.exec();
 }
