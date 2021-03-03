@@ -46,6 +46,9 @@
        </item>
        <item>
         <widget class="QComboBox" name="comboBox">
+         <property name="frame">
+          <bool>true</bool>
+         </property>
          <item>
           <property name="text">
            <string>item01</string>
