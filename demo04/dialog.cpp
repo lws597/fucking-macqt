@@ -17,6 +17,6 @@ Dialog::~Dialog()
 
 void Dialog::on_clicked()
 {
-    SonDialog sDialog(this);
-    sDialog.exec();
+    SonDialog *sDialog = new SonDialog(this);
+    sDialog->show();
 }
