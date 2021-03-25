@@ -30,6 +30,7 @@ bool MainWindow::event(QEvent* e)
         }
         case QEvent::TouchUpdate:
         {
+            ui->swipeCB->setChecked(true);
             QTouchEvent* event = static_cast<QTouchEvent*>(e);
             m_lTouchPoints = event->touchPoints();
             for (int i = 0; i < m_lTouchPoints.count(); i++) {
@@ -37,20 +38,20 @@ bool MainWindow::event(QEvent* e)
                 m_bSwipe = touchPoint.normalizedPos().x() > touchPoint.startNormalizedPos().x();
             }
             if (m_lTouchPoints.count() == 2) {
-                qreal testValue =
-                    QLineF(m_lTouchPoints[0].normalizedPos(), m_lTouchPoints[1].normalizedPos()).length() /
+                m_bPinch = QLineF(m_lTouchPoints[0].normalizedPos(), m_lTouchPoints[1].normalizedPos()).length() <
                     QLineF(m_lTouchPoints[0].startNormalizedPos(), m_lTouchPoints[1].startNormalizedPos()).length();
-                m_bPinch = testValue < 1;
             }
-        }
-        case QEvent::TouchEnd:
-        {
-            QTouchEvent* event = static_cast<QTouchEvent*>(e);
             if (event->touchPointStates() & Qt::TouchPointReleased) {
                 ui->swipeCB->setChecked(m_bSwipe);
                 ui->pinchCB->setChecked(m_bPinch);
                 ui->tapCB->setChecked(m_bTap);
             }
+        }
+        case QEvent::TouchEnd:
+        {
+            ui->swipeCB->setChecked(m_bSwipe);
+            ui->pinchCB->setChecked(m_bPinch);
+            ui->tapCB->setChecked(m_bTap);
         }
         default: break;
     }
